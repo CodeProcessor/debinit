@@ -28,6 +28,14 @@ brew:exec
 	./scripts/brew-install-packages.sh
 	zsh
 
+wsl-docker-dns-fix:exec
+	echo "Fixing WSL Docker DNS..."
+	./scripts/wsl-docker-dns-fix.sh
+
+ssh-keys:exec
+	echo "Generating SSH keys..."
+	./scripts/ssh-keys.sh
+
 docker:exec
 	echo "Installing Docker..."
 	./scripts/install-docker-ce.sh

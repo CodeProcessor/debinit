@@ -42,10 +42,9 @@ install_packages() {
         eza
         ripgrep
         ranger
-        claude
     )
-
-    brew install "${PACKAGES[@]}"
+    # install with brew automatically without user interaction
+    brew install "${PACKAGES[@]}" --no-interaction
     echo "All packages installed successfully."
 
     # change eza theme
@@ -73,7 +72,7 @@ configure_zshrc() {
         'alias ra="ranger"'
         'alias zshrc="source ~/.zshrc"'
         'alias src="source .venv/bin/python"'
-        'nerdfetch',
+        'nerdfetch'
         
     )
 

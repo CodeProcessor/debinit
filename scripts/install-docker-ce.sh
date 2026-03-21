@@ -31,4 +31,4 @@ sudo gpasswd -a $USER docker
 newgrp docker
 
 # Test Docker installation
-sudo docker run hello-world
+docker run hello-world

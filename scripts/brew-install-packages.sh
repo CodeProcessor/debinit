@@ -30,6 +30,7 @@ install_packages() {
     # List of packages to install
     PACKAGES=(
         gcc
+        nvim
         htop
         btop
         fzf
@@ -41,6 +42,7 @@ install_packages() {
         eza
         ripgrep
         ranger
+        claude
     )
 
     brew install "${PACKAGES[@]}"
@@ -57,19 +59,22 @@ configure_zshrc() {
     echo "Configuring .zshrc with aliases and commands..."
 
     # Define the commands to add to .zshrc
+    # 'alias inv=nvim $(fzf -m --preview "cat {}")'
     ZSHRC_COMMANDS=(
         'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
         'eval "$(atuin init zsh --disable-up-arrow)"'
         'eval "$(zoxide init --cmd cd zsh)"'
         'alias vi="nvim"'
         'alias vim="nvim"'
-        'alias inv=nvim $(fzf -m --preview "cat {}")'
         'alias ls="eza"'
         'alias ll="eza -alh"'
         'alias tree="eza --tree"'
         'alias cat="bat"'
         'alias ra="ranger"'
-        'nerdfetch'
+        'alias zshrc="source ~/.zshrc"'
+        'alias src="source .venv/bin/python"'
+        'nerdfetch',
+        
     )
 
     # Check and add each command if not already present

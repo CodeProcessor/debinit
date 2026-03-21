@@ -1,5 +1,9 @@
 # debinit
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/CodeProcessor/debinit/main/install.sh | bash
+```
+
 Automated development environment setup for Ubuntu/Debian systems. Transforms a fresh install into a fully-configured developer workstation with modern CLI tools and an enhanced shell — in a single command.
 
 ## What it does

@@ -28,6 +28,13 @@ brew:exec
 	./scripts/brew-install-packages.sh
 	zsh
 
+docker:exec
+	echo "Installing Docker..."
+	./scripts/install-docker-ce.sh
+	docker --version
+	docker compose --version
+
+	
 enable_ssh_server:exec
 	@echo "Enabling SSH server..."
 	./scripts/enable-ssh-server.sh

@@ -69,6 +69,7 @@ configure_zshrc() {
         'alias ll="eza -alh"'
         'alias tree="eza --tree"'
         'alias cat="bat"'
+        'alias ccat="cat"'
         'alias ra="ranger"'
         'alias zshrc="source ~/.zshrc"'
         'alias src="source .venv/bin/python"'
@@ -91,3 +92,5 @@ configure_zshrc() {
 install_brew
 install_packages
 configure_zshrc
+
+chsh -s $(which zsh)

@@ -22,13 +22,9 @@ fi
 
 chmod +x "$INSTALL_DIR/scripts/"*.sh
 
-# Install just
-if ! command -v just >/dev/null 2>&1; then
-    log "Installing just..."
-    curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
-fi
-
-log "Running just all..."
-cd "$INSTALL_DIR" && just all
+cd "$INSTALL_DIR" && ./scripts/apt-install-packages.sh
+cd "$INSTALL_DIR" && ./scripts/install-oh-my-zsh.sh
+cd "$INSTALL_DIR" && ./scripts/brew-install-packages.sh
+zsh
 
 log "Done! Restart your shell or run: exec zsh"

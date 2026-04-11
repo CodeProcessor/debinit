@@ -26,7 +26,6 @@ install_brew() {
 # Function to install packages using Homebrew
 install_packages() {
     echo "Installing packages using Homebrew..."
-
     # List of packages to install
     PACKAGES=(
         gcc
@@ -45,6 +44,11 @@ install_packages() {
     )
     # install with brew automatically without user interaction
     brew install "${PACKAGES[@]}" -q
+    
+    # install just if not installed
+    if ! command -v just >/dev/null 2>&1; then
+        brew install just
+    fi
     echo "All packages installed successfully."
 
     # change eza theme

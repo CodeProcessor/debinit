@@ -44,7 +44,7 @@ install_packages() {
         ranger
     )
     # install with brew automatically without user interaction
-    brew install "${PACKAGES[@]}" --no-interaction
+    brew install "${PACKAGES[@]}" -q
     echo "All packages installed successfully."
 
     # change eza theme
@@ -93,4 +93,5 @@ install_brew
 install_packages
 configure_zshrc
 
-chsh -s $(which zsh)
+# chsh -s $(which zsh)
+sed -i '1s/^/if [ -x "$(which zsh)" ]; then\n    exec zsh\nfi\n\n/' ~/.bashrc

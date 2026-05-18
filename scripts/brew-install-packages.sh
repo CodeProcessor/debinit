@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export NONINTERACTIVE=1
 # Script to install Homebrew and essential packages using Homebrew on Ubuntu
 
 # Function to install Homebrew
@@ -41,10 +41,12 @@ install_packages() {
         eza
         ripgrep
         ranger
+        kubectl
+        helm
     )
     # install with brew automatically without user interaction
     brew install "${PACKAGES[@]}" -q
-    
+
     # install just if not installed
     if ! command -v just >/dev/null 2>&1; then
         brew install just

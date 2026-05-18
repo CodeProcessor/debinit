@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export NONINTERACTIVE=1
 # Exit on error
 set -e
 

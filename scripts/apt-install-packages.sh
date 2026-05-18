@@ -29,7 +29,20 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y nala
 # sudo nala fetch --auto
 
 echo "Installing essential packages using nala..."
-sudo nala install -y "${PACKAGES[@]}"
+# Filter out already-installed packages
+TO_INSTALL=()
+for pkg in "${PACKAGES[@]}"; do
+    if ! dpkg -s "$pkg" &>/dev/null; then
+        TO_INSTALL+=("$pkg")
+    fi
+done
+
+if [ ${#TO_INSTALL[@]} -eq 0 ]; then
+    log "All packages already installed."
+else
+    log "Installing: ${TO_INSTALL[*]}"
+    sudo nala install -y "${TO_INSTALL[@]}"
+fi
 
 # add tmux config
 

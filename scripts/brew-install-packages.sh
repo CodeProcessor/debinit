@@ -68,7 +68,7 @@ configure_zshrc() {
     ZSHRC_COMMANDS=(
         'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
         'eval "$(atuin init zsh --disable-up-arrow)"'
-        'eval "$(zoxide init --cmd cd zsh)"'
+        'eval "$(zoxide init zsh --cmd cd)"'
         'alias vi="nvim"'
         'alias vim="nvim"'
         'alias ls="eza"'
